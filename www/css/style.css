@@ -1,0 +1,201 @@
+.navbar {
+    background-color: #333;
+    padding: 15px;
+    margin: auto;
+    
+}
+
+.navbar h1 {
+    /* margin: 0; */
+    text-align: center;
+}
+
+.navbar h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eee;
+    margin: 0;
+}
+
+section {
+    width: 90%;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Zoekbalk */
+form {
+    text-align: center;
+    margin: 20px;
+}
+
+input {
+    padding: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+}
+
+/* Filters */
+.filters {
+    background-color: white;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.filters div {
+    margin: 10px;
+}
+
+/* Boeken */
+.boeken {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.boek {
+    background-color: white;
+    padding: 15px;
+}
+
+.boek img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.boek h2 {
+    color: #333;
+}
+
+.boek a {
+    color: #333;
+}
+
+/* Telefoon */
+@media (max-width: 700px) {
+    .boeken {
+        grid-template-columns: 1fr;
+    }
+}
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    color: #333;
+}
+
+section {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+}
+
+form {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  width: 250px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #555;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+
+a {
+  color: #555;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+section > div {
+  margin-top: 20px;
+}
+
+section > div > div {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+
+section > div:last-child {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+section > div:last-child > div {
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+section img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+h2 {
+  margin-bottom: 5px;
+}
+
+
+@media (max-width: 700px) {
+  section > div:last-child {
+    grid-template-columns: 1fr;
+  }
+}
+*/
+ 
