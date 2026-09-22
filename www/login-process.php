@@ -6,9 +6,9 @@ if (isset($_POST['submit'])) {
             $emailForm = $_POST['email'];
             $passwordForm = $_POST['password'];
 
-            $conn = mysqli_connect('mariadb', 'root', 'password', 'music_app');
+            $conn = mysqli_connect('mariadb', 'root', 'password', 'library');
 
-            $sql = "SELECT * FROM users WHERE email='$emailForm'";
+            $sql = "SELECT * FROM user WHERE email='$emailForm'";
             $result = mysqli_query($conn, $sql);
 
             //als de email bestaat dan is het resultaat groter dan 0
@@ -20,10 +20,10 @@ if (isset($_POST['submit'])) {
                 if ($dbuser['password'] == $passwordForm) {
 
                     session_start();
-                    $_SESSION['user_id']    = $dbuser['id'];
+                    $_SESSION['user_id']    = $dbuser['user_id'];
                     $_SESSION['email']      = $dbuser['email'];
                     $_SESSION['firstname']  = $dbuser['firstname'];
-                    $_SESSION['lastname']   = $dbuser['lastname'];
+                    $_SESSION['surname']   = $dbuser['surname'];
                     $_SESSION['password']   = $dbuser['password'];
                     $_SESSION['role']       = $dbuser['role'];
 

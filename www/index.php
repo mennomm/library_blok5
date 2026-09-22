@@ -61,11 +61,6 @@ $books = $stmt->fetchall(PDO::FETCH_ASSOC);
         <a href="index.php?filter=genre&value=rock"></a>
     </div>
 
-    <!-- <div>
-        <p>filter op prijs (goedkoop-duur/duur-goedkoop)</p>
-        <a href="index.php?sort=duur_asc">goedkoop - duur</a>
-        <a href="index.php?sort=duur_desc">duur - goedkoop</a>
-    </div> -->
 </div>
 
 <div class="boeken">

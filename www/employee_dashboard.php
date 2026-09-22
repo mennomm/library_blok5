@@ -1,7 +1,7 @@
 <?php 
 require 'session_check.php';
 
-if ($_SESSION['role'] != 'Employee') {
+if ($_SESSION['role'] != 'employee') {
     echo "You are not allowed to view this page, please login as employee";
     exit;
 }
@@ -9,12 +9,12 @@ if ($_SESSION['role'] != 'Employee') {
 require 'navbalk.php';
 require 'database.php';
 
-$stmt=$conn ->prepare ("SELECT COUNT(id) AS total FROM users");
+$stmt=$conn ->prepare ("SELECT COUNT(user_id) AS total FROM user");
 $stmt->execute();
 $users = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
-$stmt =$conn->prepare ("SELECT COUNT(id) AS total FROM users WHERE role = 'employee'");
+$stmt =$conn->prepare ("SELECT COUNT(user_id) AS total FROM user WHERE role = 'employee'");
 $stmt->execute();
 $employees =$stmt->fetch(PDO::FETCH_ASSOC);
 

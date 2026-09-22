@@ -10,7 +10,7 @@ require 'navbalk.php';
 require 'database.php';
 
 $sql = [];
-$query = "SELECT COUNT(id) AS total FROM users";
+$query = "SELECT COUNT(user_id) AS total FROM user";
 $result = mysqli_query($conn, $query);
 $users = mysqli_fetch_assoc($result);
 
