@@ -1,4 +1,5 @@
 <?php
+require 'database.php';
 
 if (isset($_POST['submit'])) {
     if (isset($_POST['email']) && isset($_POST['password'])) {
@@ -6,16 +7,15 @@ if (isset($_POST['submit'])) {
             $emailForm = $_POST['email'];
             $passwordForm = $_POST['password'];
 
-            $conn = mysqli_connect('mariadb', 'root', 'password', 'library');
+             $stmt = $conn->prepare("SELECT * FROM user WHERE email = :email");
 
-            $sql = "SELECT * FROM user WHERE email='$emailForm'";
-            $result = mysqli_query($conn, $sql);
+            $stmt->execute([':email' => $emailForm]);
 
-            //als de email bestaat dan is het resultaat groter dan 0
-            if (mysqli_num_rows($result) > 0) {
+            // als de email bestaat dan is het resultaat groter dan 0
+            if ($stmt->rowCount() > 0) {
 
-                //resultaat gevonden? Dan maken we een user-array $dbuser
-                $dbuser = mysqli_fetch_assoc($result);
+                // resultaat gevonden? Dan maken we een user-array $dbuser
+                $dbuser = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 if ($dbuser['password'] == $passwordForm) {
 
@@ -28,12 +28,12 @@ if (isset($_POST['submit'])) {
                     $_SESSION['role']       = $dbuser['role'];
 
               // echo "You are logged in";
-                       if ($_SESSION['role'] == 'Employee') {
-                        header('Location: employee_dashboard.php');
-                    } elseif ($_SESSION['role'] == 'Member') {
-                        header('Location: dashboard.php');
-                        } else {
-                        header('Location: index.php');}
+                       if ($_SESSION['role'] != 'Employee') {
+                           header('Location: employee_dashboard.php');
+                           } elseif ($_SESSION['role'] != 'Member') {
+                               header('Location: dashboard.php');
+                               } else {
+                                   header('Location: index.php');}
                 } else {
                     include 'navbalk.php';
                     $_GET['message'] = 'wrongpassword';

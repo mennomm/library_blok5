@@ -2,7 +2,6 @@
 require 'navbalk.php';
 ?>
 <main>
-<link rel="stylesheet" href="css/style.css">
     <h1>Login</h1>
     <div class="container">
 
