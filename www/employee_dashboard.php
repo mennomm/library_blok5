@@ -21,24 +21,24 @@ $employees =$stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
-<main class="dashboard">
-    <h1>Dashboard</h1>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
+<main>
+    <h1>employee Dashboard</h1>
+    <div>
+        <div> 
+            <div>
                 <h2>Welkom <?php echo $_SESSION['firstname'] ?></h2>
                 <p>Je bent ingelogd als <?php echo $_SESSION['role'] ?></p>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="card">
-            <div class="card-group">
-                <h2 for="">Totaal aantal gebruikers</h2>
+    <div>
+        <div >
+            <div>
+                <h2>Totaal aantal gebruikers</h2>
                 <p><?php echo $users['total'] ?></p>
             </div>
-            <div class="card-group">
-                <h2 for="">Totaal aantal medewerkers</h2>
+            <div>
+                <h2>Totaal aantal medewerkers</h2>
                 <p><?php echo $employees['total'] ?></p>
             </div>
         </div>

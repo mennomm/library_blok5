@@ -1,86 +1,85 @@
 <?php
-
 include 'database.php';
-
+include 'session_check.php';
 $book_id = $_GET['book_id'];
 
 $stmt = $conn->prepare("SELECT * FROM book WHERE book_id = :book_id");
 $stmt->execute([':book_id' => $book_id]);
 
 $book = $stmt->fetch(PDO::FETCH_ASSOC);
-
 ?>
 
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>De Wijze Uil</title>
+    <title><?= $book['title'] ?> - De Wijze Uil</title>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-<header>
-    <?php include 'navbalk.php'; ?>
-</header>
-<!-- Main Content -->
-<div>
-    <!-- Hero Section -->
-    <div>
-        <div>
-            <h1>meer informatie over dit boek</h1>
-            <p></p>
+
+    <header>
+        <?php include 'navbalk.php'; ?>
+    </header>
+
+    <main>
+
+        <div class="hero">
+            <h1>Meer informatie over dit boek</h1>
+            <p>Bekijk hieronder de informatie over dit boek.</p>
         </div>
-    </div>
-    <!-- Boek -->
-    <div>
-        <div>
-            <span>book</span>
-            <h1><?php echo $book['title']; ?></h1>
-            <p><?php echo $book['artist']; ?></p>
-        </div>
-        <div>
-            <img
-                src="images/<?php echo $book['cover']; ?>"
-                alt="<?php echo $book['title']; ?>"
-            >
-        </div>
-    </div>
-    <div></div>
-    <!-- Info -->
-    <div>
-        <div>
+
+        <div class="boek-detail">
+
+            <div class="boek-info">
+                <span>Boek</span>
+
+                <h1><?= $book['title'] ?></h1>
+
+                <p><?= $book['artist'] ?></p>
+            </div>
+
             <div>
+                <img class="boek-cover" src="images/<?= $book['cover'] ?>" alt="<?= $book['title'] ?>">
+            </div>
+
+        </div>
+
+        <div class="info">
+
+            <div class="info-item">
                 <span>Artiest</span>
-                <span>
-                <?php echo $book['artist']; ?>
-                </span>
+                <span><?= $book['artist'] ?></span>
             </div>
-            <div>
-                <span>category</span>
-                <span>
-                    <?php echo $book['category']; ?>
-                </span>
+
+            <div class="info-item">
+                <span>Categorie</span>
+                <span><?= $book['category'] ?></span>
             </div>
+
+            <div class="info-item">
+                <span>Pagina's</span>
+                <span><?= $book['aantal_paginas'] ?></span>
+            </div>
+
         </div>
-        <div>
-            <div>
-                <span>pagina's</span>
-                <span>
-                    <?php echo $book['aantal_paginas']; ?>
-                </span>
-            </div>
+
+        <div class="terug">
+            <a href="index.php">
+                ← Terug naar overzicht
+            </a>
         </div>
-    </div>
-    <!-- Terug -->
-    <div>
-        <a href="index.php">
-            ← terug naar overzicht
-        </a>
-    </div>
-    <!-- Footer -->
+
+    </main>
+
     <footer>
         <?php include 'footer.php'; ?>
     </footer>
-</div>
+
 </body>
+
 </html>

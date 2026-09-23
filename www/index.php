@@ -88,5 +88,6 @@ $books = $stmt->fetchall(PDO::FETCH_ASSOC);
     </body>
 
     <footer>
+      <?= require 'footer.php' ?>
     </footer>
     

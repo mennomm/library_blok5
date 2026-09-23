@@ -108,8 +108,144 @@ button {
     }
 }
 
+/* Detailpagina */
 
+main {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
 
+/* Titel */
+
+.hero {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    color: #333;
+}
+
+.hero p {
+    color: #666;
+}
+
+/* Boek */
+
+.boek-detail {
+    display: flex;
+    gap: 40px;
+    background-color: white;
+    padding: 30px;
+}
+
+.boek-info {
+    flex: 1;
+}
+
+.boek-info span {
+    background-color: #ddd;
+    padding: 5px 10px;
+}
+
+.boek-info h1 {
+    margin-top: 20px;
+}
+
+.boek-cover {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* Informatie */
+
+.info {
+    background-color: white;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.info-item span:first-child {
+    font-weight: bold;
+}
+
+/* Terug knop */
+
+.terug {
+    margin-top: 20px;
+}
+
+.terug a {
+    color: #333;
+    text-decoration: none;
+}
+
+.terug a:hover {
+    text-decoration: underline;
+}
+
+/* Mobiel */
+
+@media (max-width: 700px) {
+
+    .boek-detail {
+        flex-direction: column;
+    }
+
+    .boek-cover {
+        width: 100%;
+        height: auto;
+    }
+
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 30px;
+    margin-top: 40px;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+footer h4 {
+    margin-bottom: 10px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer li {
+    margin-bottom: 5px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    margin: 5px 0;
+}
 
 
 

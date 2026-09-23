@@ -28,9 +28,9 @@ if (isset($_POST['submit'])) {
                     $_SESSION['role']       = $dbuser['role'];
 
               // echo "You are logged in";
-                       if ($_SESSION['role'] != 'Employee') {
+                       if ($_SESSION['role'] == 'employee') {
                            header('Location: employee_dashboard.php');
-                           } elseif ($_SESSION['role'] != 'Member') {
+                           } elseif ($_SESSION['role'] == 'member') {
                                header('Location: dashboard.php');
                                } else {
                                    header('Location: index.php');}
