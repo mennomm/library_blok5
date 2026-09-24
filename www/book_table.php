@@ -3,7 +3,7 @@ require 'database.php';
 require 'session_check.php';
 
 if ($_SESSION['role'] != 'employee') {
-    echo "You are not allowed to view this page, please login as employee";
+    echo htmlspecialchars("You are not allowed to view this page, please login as employee");
     exit;
 }
 
@@ -43,10 +43,10 @@ $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <tbody>
                 <?php foreach ($books as $book): ?>
                     <tr>
-                        <td><?php echo $book['title']; ?></td>
-                        <td><?php echo $book['artist']; ?></td>
-                        <td><?php echo $book['aantal_paginas']; ?></td>
-                        <td><?php echo $book['category']; ?></td>
+                        <td><?php echo htmlspecialchars($book['title']); ?></td>
+                        <td><?php echo htmlspecialchars($book['artist']); ?></td>
+                        <td><?php echo htmlspecialchars($book['aantal_paginas']); ?></td>
+                        <td><?php echo htmlspecialchars($book['category']); ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

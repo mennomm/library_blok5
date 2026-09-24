@@ -32,7 +32,6 @@ if (isset($_POST['search'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoekresultaten</title>
-    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -44,22 +43,29 @@ if (isset($_POST['search'])) {
             <h1>Zoekresultaten</h1>
             <p>
                 Aantal gevonden boeken:
-                <strong><?= count($books) ?></strong>
+                <strong><?= htmlspecialchars(count($books)) ?></strong>
             </p>
         </div>
+         <div class="filters">
+      <form method="POST" action="zoeken.php">
+        <input type="text" name="search" placeholder="Zoek een title">
+        <button type="submit">
+          Zoek
+        </button>
+      </form>
         <div class="boeken">
             <?php foreach ($books as $book): ?>
                 <div class="boek">
-                    <img src="images/<?= $book['cover'] ?>" alt="<?= $book['title'] ?>">
+                    <img src="images/<?= htmlspecialchars($book['cover']) ?>" alt="<?= htmlspecialchars($book['title']) ?>">
                     <div>
-                        <h2><?= $book['title'] ?></h2>
-                        <p><?= $book['artist'] ?></p>
+                        <h2><?= htmlspecialchars($book['title']) ?></h2>
+                        <p><?= htmlspecialchars($book['artist']) ?></p>
                         <div class="informatie">
-                            <span><?= $book['category'] ?></span>
-                            <span><?= $book['aantal_paginas'] ?> pagina's</span>
+                            <span><?= htmlspecialchars($book['category']) ?></span>
+                            <span><?= htmlspecialchars($book['aantal_paginas']) ?> pagina's</span>
                         </div>
                         <div>
-                            <a href="detail.php?book_id=<?= $book['book_id'] ?>">
+                            <a href="detail.php?book_id=<?= htmlspecialchars($book['book_id']) ?>">
                                 Meer info
                             </a>
                         </div>

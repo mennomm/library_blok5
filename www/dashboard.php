@@ -16,8 +16,8 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
     <div>
         <div>
             <div>
-                <h2> Welkom <?php echo $_SESSION['firstname']; ?> </h2>
-                <p> Je bent ingelogd als <?php echo $_SESSION['role']; ?> </p>
+                <h2> Welkom <?php echo htmlspecialchars($_SESSION['firstname']); ?> </h2>
+                <p> Je bent ingelogd als <?php echo htmlspecialchars($_SESSION['role']); ?> </p>
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
         <div>
             <div>
                 <h2>Totaal aantal gebruikers</h2>
-                <p> <?php echo $user['total']; ?> </p>
+                <p> <?php echo htmlspecialchars($user['total']); ?> </p>
             </div>
         </div>
     </div>

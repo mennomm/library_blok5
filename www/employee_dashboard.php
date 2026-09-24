@@ -2,7 +2,7 @@
 require 'session_check.php';
 
 if ($_SESSION['role'] != 'employee') {
-    echo "You are not allowed to view this page, please login as employee";
+    echo htmlspecialchars( "You are not allowed to view this page, please login as employee");
     exit;
 }
 
@@ -31,8 +31,8 @@ $users =$stmt->fetchAll(PDO::FETCH_ASSOC);
     <div>
         <div> 
             <div>
-                <h2>Welkom <?php echo $_SESSION['firstname'] ?></h2>
-                <p>Je bent ingelogd als <?php echo $_SESSION['role'] ?></p>
+                <h2>Welkom <?php echo htmlspecialchars( $_SESSION['firstname']) ?></h2>
+                <p>Je bent ingelogd als <?php echo htmlspecialchars( $_SESSION['role']) ?></p>
             </div>
         </div>
     </div>
@@ -40,14 +40,23 @@ $users =$stmt->fetchAll(PDO::FETCH_ASSOC);
         <div >
             <div>
                 <h2>Totaal aantal gebruikers</h2>
-                <p><?php echo $gebr['total'] ?></p>
+                <p><?php echo htmlspecialchars( $gebr['total']) ?></p>
             </div>
             <div>
                 <h2>Totaal aantal medewerkers</h2>
-                <p><?php echo $employees['total'] ?></p>
+                <p><?php echo htmlspecialchars( $employees['total']) ?></p>
             </div>
         </div>
     </div>
+
+
+     <div class="filters">
+      <form method="POST" action="gebruiker_zoeken.php">
+        <input type="text" name="search" placeholder="Zoek een gebruiker">
+        <button type="submit">
+          Zoek
+        </button>
+      </form>
 <h2>Users info</h2>
 
 <table class="gebruikers">
@@ -62,16 +71,26 @@ $users =$stmt->fetchAll(PDO::FETCH_ASSOC);
     </thead>
 
     <tbody>
-        <?php foreach ($users as $user): ?>
-            <tr>
-                <td><?php echo $user['username']; ?></td>
-                <td><?php echo $user['firstname']; ?></td>
-                <td><?php echo $user['surname']; ?></td>
-                <td><?php echo $user['email']; ?></td>
-                <td><?php echo $user['role']; ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
+                    <?php foreach ($users as $user): ?>
+                        <tr>
+                            <td>
+                                <?= htmlspecialchars($user['username']) ?>
+                            </td>
+                            <td>
+                                <?= htmlspecialchars($user['firstname']) ?>
+                            </td>
+                            <td>
+                                <?= htmlspecialchars($user['surname']) ?>
+                            </td>
+                            <td>
+                                <?= htmlspecialchars($user['email']) ?>
+                            </td>
+                            <td>
+                                <?= htmlspecialchars($user['role']) ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
 </table>
 </main>
 

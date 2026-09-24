@@ -15,7 +15,7 @@ $book = $stmt->fetch(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $book['title'] ?> - De Wijze Uil</title>
+    <title><?= htmlspecialchars( $book['title']) ?> - De Wijze Uil</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -38,13 +38,13 @@ $book = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="boek-info">
                 <span>Boek</span>
 
-                <h1><?= $book['title'] ?></h1>
+                <h1><?= htmlspecialchars( $book['title']) ?></h1>
 
-                <p><?= $book['artist'] ?></p>
+                <p><?= htmlspecialchars( $book['artist']) ?></p>
             </div>
 
             <div>
-                <img class="boek-cover" src="images/<?= $book['cover'] ?>" alt="<?= $book['title'] ?>">
+                <img class="boek-cover" src="images/<?= htmlspecialchars( $book['cover']) ?>" alt="<?= htmlspecialchars( $book['title']) ?>">
             </div>
 
         </div>
@@ -53,17 +53,17 @@ $book = $stmt->fetch(PDO::FETCH_ASSOC);
 
             <div class="info-item">
                 <span>Artiest</span>
-                <span><?= $book['artist'] ?></span>
+                <span><?= htmlspecialchars( $book['artist']) ?></span>
             </div>
 
             <div class="info-item">
                 <span>Categorie</span>
-                <span><?= $book['category'] ?></span>
+                <span><?= htmlspecialchars( $book['category']) ?></span>
             </div>
 
             <div class="info-item">
                 <span>Pagina's</span>
-                <span><?= $book['aantal_paginas'] ?></span>
+                <span><?= htmlspecialchars( $book['aantal_paginas']) ?></span>
             </div>
 
         </div>

@@ -7,50 +7,50 @@ require 'database.php';
 
 // TITLE
 if (empty($_POST['title'])) {
-    echo "Title book is required";
+    echo htmlspecialchars( "Title book is required");
     exit;
 }
 
 if (strlen($_POST['title']) < 3) {
-    echo "Title is too short";
+    echo htmlspecialchars( "Title is too short");
     exit;
 }
 
 if (strlen($_POST['title']) > 100) {
-    echo "Title is too long";
+    echo htmlspecialchars( "Title is too long");
     exit;
 }
 
 // ARTIST
 if (empty($_POST['artist'])) {
-    echo "Artist is required";
+    echo htmlspecialchars( "Artist is required");
     exit;
 }
 
 if (strlen($_POST['artist']) < 2) {
-    echo "Artist name is too short";
+    echo htmlspecialchars( "Artist name is too short");
     exit;
 }
 
 if (strlen($_POST['artist']) > 50) {
-    echo "Artist name is too long";
+    echo htmlspecialchars( "Artist name is too long");
     exit;
 }
 
 
 // TRACKS
 if (empty($_POST['aantal_paginas'])) {
-    echo "aantal_pagina's field is required";
+    echo htmlspecialchars( "aantal_pagina's field is required");
     exit;
 }
 
 if (!is_numeric($_POST['aantal_paginas'])) {
-    echo "aantal_pagina's moet een nummer zijn";
-    exit;
+    echo htmlspecialchars( "aantal_pagina's moet een nummer zijn");
+    exit; 
 }
 
 if ($_POST['aantal_paginas']> 1000) {
-    echo "aantal_pagina's is too long";
+    echo htmlspecialchars( "aantal_pagina's is too long");
     exit;
 }
 

@@ -4,7 +4,8 @@ session_start();
 if (isset($_GET['filter']) && isset($_GET['value'])) {
   $filter = $_GET['filter'];
   $value = $_GET['value'];
-  $stmt = $conn->prepare("SELECT * FROM book WHERE $filter = '$value'");
+  $stmt = $conn->prepare("SELECT * FROM book WHERE $filter = :value");
+  $stmt->bindValue(':value', $value);
 } else {
   $stmt = $conn->prepare("SELECT * FROM book");
 }
@@ -20,7 +21,7 @@ if (isset($_POST['search'])) {
   $stmt->bindValue(':search', "%$search%");
 }
 $stmt->execute();
-$books = $stmt->fetchall(PDO::FETCH_ASSOC);
+$books = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
@@ -30,7 +31,6 @@ $books = $stmt->fetchall(PDO::FETCH_ASSOC);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>De Wijze Uil</title>
-  <link rel="stylesheet" href="css/style.css">
   <?php include 'navbalk.php' ?>
 </head>
 
@@ -68,19 +68,20 @@ $books = $stmt->fetchall(PDO::FETCH_ASSOC);
     <div class="boeken">
       <?php foreach ($books as $book): ?>
         <div class="boek">
-          <img src="images/<?= $book['cover'] ?>" alt="<?= $book['title'] ?>">
-
+          <img src="images/<?= htmlspecialchars($book['cover']) ?>" alt="<?= htmlspecialchars($book['title']) ?>">
           <div>
-            <h2><?= $book['title'] ?></h2>
-            <p><?= $book['artist'] ?></p>
+            <h2><?= htmlspecialchars($book['title']) ?></h2>
+            <p><?= htmlspecialchars($book['artist']) ?></p>
 
             <div>
-              <span><?= $book['category'] ?></span>
-              <span><?= $book['aantal_paginas'] ?> pagina's</span>
+              <span><?= htmlspecialchars($book['category']) ?></span>
+              <span><?= htmlspecialchars($book['aantal_paginas']) ?> pagina's</span>
             </div>
 
             <div>
-              <a href="detail.php?book_id=<?= $book['book_id'] ?>">meer info</a>
+              <a href="detail.php?book_id=<?= htmlspecialchars($book['book_id']) ?>">
+                meer info
+              </a>
             </div>
           </div>
         </div>
@@ -89,6 +90,6 @@ $books = $stmt->fetchall(PDO::FETCH_ASSOC);
   </section>
 
   <footer>
-    <? require 'footer.php' ?>
+    <?php require 'footer.php' ?>
   </footer>
 </body>

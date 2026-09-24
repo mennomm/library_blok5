@@ -2,7 +2,7 @@
 require 'session_check.php';
 
 if ($_SESSION['role'] != 'employee') {
-    echo "You are not allowed to view this page, please login as employee";
+    echo htmlspecialchars("You are not allowed to view this page, please login as employee");
     exit;
 }
 ?>
