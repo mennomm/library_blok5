@@ -50,7 +50,7 @@ $books = $stmt->fetchall(PDO::FETCH_ASSOC);
         
         <div class="filters">
         <form method="POST" action="zoeken.php">
-          <input type="text" name="search" placeholder="Zoek een boek...">
+          <input type="text" name="search" placeholder="Zoek een title">
           <button type="submit">
             Zoek
           </button>
@@ -84,10 +84,10 @@ $books = $stmt->fetchall(PDO::FETCH_ASSOC);
         </div>
     <?php endforeach ?>
 </div>
-      </section>
-    </body>
+</section>
 
     <footer>
-      <?= require 'footer.php' ?>
+      <? require 'footer.php' ?>
     </footer>
+    </body>
     

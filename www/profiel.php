@@ -36,4 +36,5 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
         </div>
     </div>
-</main> <?php require 'footer.php'; ?>
+</main> 
+<?php require 'footer.php'; ?>
