@@ -1,5 +1,10 @@
 <?php
 require 'session_check.php';
+
+if ($_SESSION['role'] != 'employee') {
+    echo "You are not allowed to view this page, please login as employee";
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -56,12 +61,11 @@ require 'session_check.php';
             <input type="text" name="text" id="cover" placeholder="shoyohinata.jpg">
         </div>
         <button type="submit">Maak boek aan</button>
-
     </form>
 
-</body>
-<footer>
-    <? include 'footer.php'; ?>
-</footer>
 
+    <footer>
+        <? include 'footer.php'; ?>
+    </footer>
+</body>
 </html>

@@ -11,7 +11,37 @@ body {
     display: flex;
     flex-direction: column;
 }
+.dropdown {
+    position: relative;
+}
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 180px;
+    padding: 0;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover > a {
+    color: white;
+}
 /* Navigatie */
 
 .navbar {
@@ -239,6 +269,59 @@ button:hover {
 
 .boek-form button:hover {
     background-color: #555;
+}
+
+
+.gebruikers {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.gebruikers th {
+    background-color: #333;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.gebruikers td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.gebruikers tr:hover {
+    background-color: #eee;
+}
+
+.gebruikers th,
+.gebruikers td {
+    border-right: 1px solid #ddd;
+}
+
+
+.boeken-tabel {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.boeken-tabel th {
+    background-color: #333;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.boeken-tabel td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.boeken-tabel tr:hover {
+    background-color: #eee;
 }
 
 /* Footer */
