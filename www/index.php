@@ -24,70 +24,71 @@ $books = $stmt->fetchall(PDO::FETCH_ASSOC);
 ?>
 
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>De Wijze Uil</title>
-      <link rel="stylesheet" href="css/style.css">
-      <?php include 'navbalk.php' ?>
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De Wijze Uil</title>
+  <link rel="stylesheet" href="css/style.css">
+  <?php include 'navbalk.php' ?>
+</head>
 
-    <body>
-      <section>
-        <header>
-        </header>
+<body>
+  <section>
+    <header>
+    </header>
 
-        <h1>Welkom bij De Wijze Uil</h1>
+    <h1>Welkom bij De Wijze Uil</h1>
 
-        
-        <a href="create_book.php">
-          <button>
-            maak nieuwe book
-          </button>
-        </a>
-        
-        <div class="filters">
-        <form method="POST" action="zoeken.php">
-          <input type="text" name="search" placeholder="Zoek een title">
-          <button type="submit">
-            Zoek
-          </button>
-        </form>
-    <div>
-        <p>filter op genre</p>
+    <div class="filters">
+      <form method="POST" action="zoeken.php">
+        <input type="text" name="search" placeholder="Zoek een title">
+        <button type="submit">
+          Zoek
+        </button>
+      </form>
+      <div>
+        <p>filter op category</p>
         <a href="index.php">reset</a>
-        <a href="index.php?filter=genre&value=rock"></a>
+        <a href="index.php?filter=category&value=fantasy">Fantasy</a>
+        <a href="index.php?filter=category&value=dystopian">dystopian</a>
+        <a href="index.php?filter=category&value=classic">classic</a>
+        <a href="index.php?filter=category&value=romance">romance</a>
+        <a href="index.php?filter=category&value=drama">drama</a>
+        <a href="index.php?filter=category&value=adventure">adventure</a>
+        <a href="index.php?filter=category&value=mystery">mystery</a>
+        <a href="index.php?filter=category&value=science fiction">science fiction</a>
+        <a href="index.php?filter=category&value=horro">horro</a>
+        <a href="index.php?filter=category&value=historical">historical</a>
+        <a href="index.php?filter=category&value=sport">sport</a>
+      </div>
     </div>
 
-</div>
-
-<div class="boeken">
-    <?php foreach ($books as $book): ?>
+    <div class="boeken">
+      <?php foreach ($books as $book): ?>
         <div class="boek">
-            <img src="images/<?= $book['cover'] ?>" alt="<?= $book['title'] ?>">
+          <img src="images/<?= $book['cover'] ?>" alt="<?= $book['title'] ?>">
+
+          <div>
+            <h2><?= $book['title'] ?></h2>
+            <p><?= $book['artist'] ?></p>
 
             <div>
-                <h2><?= $book['title'] ?></h2>
-                <p><?= $book['artist'] ?></p>
-
-                <div>
-                    <span><?= $book['category'] ?></span>
-                    <span><?= $book['aantal_paginas'] ?> pagina's</span>
-                </div>
-
-                <div>
-                  <a href="detail.php?book_id=<?= $book['book_id'] ?>">meer info</a>
-                </div>
+              <span><?= $book['category'] ?></span>
+              <span><?= $book['aantal_paginas'] ?> pagina's</span>
             </div>
-        </div>
-    <?php endforeach ?>
-</div>
-</section>
 
-    <footer>
-      <? require 'footer.php' ?>
-    </footer>
-    </body>
-    
+            <div>
+              <a href="detail.php?book_id=<?= $book['book_id'] ?>">meer info</a>
+            </div>
+          </div>
+        </div>
+      <?php endforeach ?>
+    </div>
+  </section>
+
+  <footer>
+    <? require 'footer.php' ?>
+  </footer>
+</body>

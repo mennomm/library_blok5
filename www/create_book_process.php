@@ -2,10 +2,7 @@
 
 require 'database.php';
 
-if ($_SESSION['role'] != 'employee') {
-    echo "You are not allowed to view this page, please login as employee";
-    exit;
-}
+
 
 
 // TITLE
@@ -65,11 +62,11 @@ $aantal_paginas=$_POST['aantal_paginas'];
 
 $stmt = $conn->prepare("INSERT INTO book (title, artist, category, aantal_paginas)  VALUES(:title, :artist, :category, :aantal_paginas)");
 
-$result = $stmt->execute(['title' => 'haikyuu', 'artist' => 'Haruichi Furudate', 'category' => 'sport', 'aantal_paginas'=>'10']);
+$result = $stmt->execute(['title' => $title, 'artist' => $artist, 'category' => $category, 'aantal_paginas'=>$aantal_paginas]);
 
 if ($result) {
-    header(":loction book_table");
-    echo "book aangemaakt";
+  header("Location: book_table.php");
+    exit;
 } else {
     echo "book niet aangemaakt";
 }

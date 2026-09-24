@@ -115,19 +115,80 @@ button {
 button:hover {
     background-color: #555;
 }
+/* Zoekresultaten */
 
+.zoekresultaten {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.zoekresultaten h1 {
+    margin-top: 0;
+}
+
+.zoekresultaten p {
+    color: #666;
+}
+
+.zoekresultaten strong {
+    color: #333;
+}
 /* Filters */
 
 .filters {
     background-color: white;
-    padding: 15px;
+    padding: 20px;
     margin: 20px 0;
 }
 
-.filters div {
-    margin: 10px;
+.filters form {
+    margin: 0 0 20px 0;
+    text-align: left;
 }
 
+.filters input {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+}
+
+.filters button {
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.filters button:hover {
+    background-color: #555;
+}
+
+.filters p {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.filters div {
+    margin-bottom: 15px;
+}
+
+.filters a {
+    display: inline-block;
+    background-color: #eee;
+    color: #333;
+    text-decoration: none;
+    padding: 8px 12px;
+    margin: 4px;
+    border-radius: 3px;
+}
+
+.filters a:hover {
+    background-color: #333;
+    color: white;
+}
 /* Boeken */
 
 .boeken {
